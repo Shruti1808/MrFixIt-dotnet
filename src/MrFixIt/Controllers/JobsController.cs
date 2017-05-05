@@ -50,5 +50,24 @@ namespace MrFixIt.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
+        //Edit a job
+
+        public IActionResult Edit(int id)
+        {
+            var thisItem = db.Jobs.FirstOrDefault(items => items.JobId == id);
+            return View(thisItem);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Job job)
+        {
+            //The POST request handles the form submission and uses that to modify the individual entry with EntityState.Modified, saves the changes, and takes us back to Index.
+
+            db.Entry(job).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
