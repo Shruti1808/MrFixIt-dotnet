@@ -35,6 +35,7 @@ namespace MrFixIt.Controllers
             return RedirectToAction("Index");
         }
 
+        //Method to Claim job
         public IActionResult Claim(int id)
         {
             var thisItem = db.Jobs.FirstOrDefault(items => items.JobId == id);

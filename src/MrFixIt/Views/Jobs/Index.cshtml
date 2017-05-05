@@ -3,6 +3,7 @@
     <h3>Our Current Jobs</h3>
     @Html.ActionLink("Add a new job", "Create")
 </div>
+
 @foreach (var Job in Model)
 {
        
@@ -13,36 +14,27 @@
             <li>@Job.Description</li>
         </ul>
 
-        @*//If there is no job , then worker who is available should claim it*@
-
         @if (Job.Worker == null)
         {
-        <li class="btn" id="@Job.JobId">This job is unclaimed.
-            @if (Job.Worker.Identity.Name != Job.Worker.UserName)
-            {
-                <button value="@Job.JobId" class="claim-job btn btn-primary">Claim this job!</button>
-            }
-</li>
-
+            <li class="btn" id="job-@Job.JobId">
+                This job is unclaimed.
+                @Html.ActionLink("Claim This Job", "Claim", new { @text = @Job.Title, id = Job.JobId })
+                
+            </li>
         }
-
-        @*If available worker claims to complete the job and/or is still working on it *@
         else
         {
-            @if (Job.Completed)
+            @if (Job.Completed == true)
             {
-
-            <li class="btn" id="@Job.JobId">This Job is claimed by @Job.Worker.FirstName @Job.Worker.LastName</li>
-
+                <li class="btn" id="job-@Job.JobId">This Job has been completed by @Job.Worker.FirstName @Job.Worker.LastName.</li>
             }
-            else if (Job.Pending)
+            else if (Job.Pending == true)
             {
-                <li class="btn btn-primary" id="@Job.JobId">
+                <li class="btn" id="job-@Job.JobId">
                     This Job is claimed and being worked on by @Job.Worker.FirstName @Job.Worker.LastName.
-                    @if(Job.Worker.Identity.Name == Job.Worker.UserName)
+                    @if (User.Identity.Name == Job.Worker.UserName )
                     {
-<button value="@Job.JobId" class="btn btn-primary complete"> Still to be Done!</button>
-
+                        <button value="@Job.JobId" class="complete btn btn-primary">Hey, I'm done working over here!</button>
                     }
                 </li>
             }
@@ -50,19 +42,20 @@
             {
                 <li class="btn" id="job-@Job.JobId">
                     This Job is claimed by @Job.Worker.FirstName @Job.Worker.LastName.
-                    @if (Job.Worker.Identity.Name == Job.Worker.UserName)
+                    @if (User.Identity.Name == Job.Worker.UserName)
                     {
-                        <button value="@Job.JobId" class="working btn btn-primary">Still working!</button>
+                        <button value="@Job.JobId" class="working btn btn-primary">Hey, I'm working over here!</button>
                     }
                 </li>
             }
         }
+        
     </ul>
 
     <hr />
 }
 
-<script>
+<script type="text/javascript">
 //write AJAX call to claim job
 $(document).ready(function () {
     $(".claim-job").click(function () {
@@ -73,10 +66,9 @@ $(document).ready(function () {
             dataType: "json",
             data: $(this).serialize(),   //serialize() method turns data submitted from the form into a format that can be used by the controller.
             success: function (result) {
-            var resultString =
+            //var resultString =
             $("#job-" + selectedId).text("This Job is claimed by " + result.worker.firstName + " " + result.worker.lastName + ".");
             $("#job-" + selectedId).append("<button value=\"" + selectedId + "\" class=\"working btn btn-primary\">Still working!</button>");
-            $('add-job').html(resultString);
 
             console.log(result);
             if (!result.worker.available) {
