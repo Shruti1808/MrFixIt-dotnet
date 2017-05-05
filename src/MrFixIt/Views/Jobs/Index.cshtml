@@ -17,8 +17,8 @@
 
         @if (Job.Worker == null)
         {
-        <li class="btn" id="job-@Job.JobId">This job is unclaimed.
-            @if (Job.Worker.Identity.Name != Job.UserName && ViewBag.CurrentWorker.Available)
+        <li class="btn" id="@Job.JobId">This job is unclaimed.
+            @if (Job.Worker.Identity.Name != Job.Worker.UserName)
             {
                 <button value="@Job.JobId" class="claim-job btn btn-primary">Claim this job!</button>
             }
@@ -62,3 +62,31 @@
     <hr />
 }
 
+<script>
+//write AJAX call to claim job
+$(document).ready(function () {
+    $(".claim-job").click(function () {
+        var selectedId = $(this).attr("value");
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("Claim")',    //method defined in controller
+            dataType: "json",
+            data: $(this).serialize(),   //serialize() method turns data submitted from the form into a format that can be used by the controller.
+            success: function (result) {
+            var resultString =
+            $("#job-" + selectedId).text("This Job is claimed by " + result.worker.firstName + " " + result.worker.lastName + ".");
+            $("#job-" + selectedId).append("<button value=\"" + selectedId + "\" class=\"working btn btn-primary\">Still working!</button>");
+            $('add-job').html(resultString);
+
+            console.log(result);
+            if (!result.worker.available) {
+            $(".claim-job").hide();
+        }
+    }
+        });
+     });
+ });
+</script>
+
+
+@*//var resultString = $(this).hide();*@

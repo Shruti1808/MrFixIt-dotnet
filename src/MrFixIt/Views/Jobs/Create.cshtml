@@ -1,7 +1,5 @@
 ﻿@*Link layout file here*@
 
-
-
 @{
     ViewData["Title"] = "Job - Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -18,7 +16,10 @@
             @Html.TextBoxFor(model => model.Title, new { @required = "true" })
             @Html.LabelFor(model => model.Description)
             @Html.TextBoxFor(model => model.Description, new { @required = "true" })
-            <input type="submit" value="Add new job" />
+            <input type="text" value="Add new job" />
+            <button type="submit">Add new job</button>
         }
+
+<div id="add-job"></div>
 
   <p>@Html.ActionLink("Back to list", "Index")</p>

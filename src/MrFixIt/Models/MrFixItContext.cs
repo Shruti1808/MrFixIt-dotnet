@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace MrFixIt.Models
 {
     public class MrFixItContext : IdentityDbContext<ApplicationUser>
