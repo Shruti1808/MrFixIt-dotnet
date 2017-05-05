@@ -69,5 +69,21 @@ namespace MrFixIt.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        //Delete a Job
+        public IActionResult Delete(int id)
+        {
+            var thisItem = db.Jobs.FirstOrDefault(items => items.JobId == id);
+            return View(thisItem);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var thisItem = db.Jobs.FirstOrDefault(items => items.JobId == id);
+            db.Jobs.Remove(thisItem);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

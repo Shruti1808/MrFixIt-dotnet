@@ -20,6 +20,8 @@
                 This job is unclaimed.
                 <button class="btn btn-warning">@Html.ActionLink("Claim This Job", "Claim", new { @text = @Job.Title, id = Job.JobId })</button>
                 <button class="btn btn-info">@Html.ActionLink("Save", "Edit", new {id = Job.JobId})</button>
+                <button class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { id = Job.JobId })</button>
+
                 
             </li>
         }
