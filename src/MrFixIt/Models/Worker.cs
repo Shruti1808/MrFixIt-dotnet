@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;  //add data schema
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
@@ -9,6 +10,9 @@ using Microsoft.AspNetCore.Http;
 
 namespace MrFixIt.Models
 {
+
+    //data annotation to create a worker's table in database
+    [Table("Workers")]  
     public class Worker
     {
         [Key]

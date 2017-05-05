@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;  //add data schema
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace MrFixIt.Models
 {
+    //data annotation to create a jobs table in database
+    [Table("Jobs")]
     public class Job
     {
         [Key]

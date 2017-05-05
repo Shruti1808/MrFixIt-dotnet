@@ -1,8 +1,10 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@*Link layout file here*@
 
+
+
+@{
+    ViewData["Title"] = "Job - Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @model MrFixIt.Models.Job
@@ -18,4 +20,5 @@
             @Html.TextBoxFor(model => model.Description, new { @required = "true" })
             <input type="submit" value="Add new job" />
         }
-        <p>@Html.ActionLink("Back to list", "Index")</p>
+
+  <p>@Html.ActionLink("Back to list", "Index")</p>

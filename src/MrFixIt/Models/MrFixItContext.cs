@@ -5,10 +5,12 @@ namespace MrFixIt.Models
 {
     public class MrFixItContext : IdentityDbContext<ApplicationUser>
     {
+        //Create an empty constructor to instantiate the class, as well as link this context to soon-to-be-created database.
         public MrFixItContext()
         {
         }
 
+        //Each DbSet will become a table in the database.
         public virtual DbSet<Job> Jobs { get; set; }
 
         public virtual DbSet<Worker> Workers { get; set; }
