@@ -20,11 +20,14 @@ namespace MrFixIt.Controllers
             return View(db.Jobs.Include(i => i.Worker).ToList());
         }
 
+        //Get Request to create job
+
         public IActionResult Create()
         {
             return View();
         }
 
+        //Post request to add jobs
         [HttpPost]
         public IActionResult Create(Job job)
         {

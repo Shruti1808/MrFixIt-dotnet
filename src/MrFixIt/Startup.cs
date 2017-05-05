@@ -42,19 +42,27 @@ namespace MrFixIt
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            app.UseStaticFiles();
+            
+
             loggerFactory.AddConsole();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+
             app.UseIdentity();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Account}/{action=Index}/{id?}");
             });
+
+            // add some configuration to our app to tell it to use static files. Also, app.UseStaticFiles() needs to be before app.Run..., or the files will not load.
+
+            app.UseStaticFiles();
+
             app.Run(async (error) =>
             {
                 await error.Response.WriteAsync("You should not see this message. An error has occured.");
