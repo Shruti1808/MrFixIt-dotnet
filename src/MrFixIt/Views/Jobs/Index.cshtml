@@ -18,7 +18,8 @@
         {
             <li class="btn" id="job-@Job.JobId">
                 This job is unclaimed.
-                @Html.ActionLink("Claim This Job", "Claim", new { @text = @Job.Title, id = Job.JobId })
+                <button class="btn btn-warning">@Html.ActionLink("Claim This Job", "Claim", new { @text = @Job.Title, id = Job.JobId })</button>
+                <button class="btn btn-info">@Html.ActionLink("Save", "Edit", new {id = Job.JobId})</button>
                 
             </li>
         }
