@@ -3,33 +3,44 @@
     ViewBag.Title = "Mr Fix-It";
 }
 
-<div class="container text-center">
+<div class="container">
     <h2>Welcome to Mr Fix-It</h2>
-    <h2><small>The Work Source for Crowdsourced Repair Jobs.</small></h2>
-    <p><i>Repairing your belongings takes time and effort. <br />Here at Mr. Fix-It, we aim to make that job a lot easier.</i></p>
-</div>
+    
+        <h2><small>The Work Source for Crowdsourced Repair Jobs.</small></h2>
+        <p><i>Repairing your belongings takes time and effort. <br />Here at Mr. Fix-It, we aim to make that job a lot easier.</i></p>
+    </div>
+
 <hr />
 <div class="container">
-    <h3>Need a repair?</h3>
-    <p>
-        If you have an item that needs repair, access our @Html.ActionLink("Repair My Item", "Create", "Jobs") page, where you can
-        list the job you need completed.  A worker may accept your repair.
-    </p>
-    <h4>What next?</h4>
-    <p>You'll be able to check on your job, and see if it's been claimed, activated, or completed.</p>
-    <ul>
-        <li>Claimed: A repair memeber has chosen to take up your repair. It has been added to their Job Queue.</li>
-        <li>Activated: Our repair memeber has completed other jobs, and your is next in line or underway.</li>
-        <li>Completed: Your repair has been completed marked done by our repair member.</li>
-    </ul>
-    <p>
-        Once your job in completed, you have no further responsibility. In fact, you can freely @Html.ActionLink("check on the status", "Index", "Jobs") of all repairs,
-        and see which repair memebers are taking them on.
-    </p>
-</div>
+    <div class="row">
+    <div class="details col-md-6">
+        <h3>Need a repair?</h3>
+        <p>
+            If you have an item that needs repair, access our @Html.ActionLink("Repair My Item", "Create", "Jobs") page, where you can
+            list the job you need completed.  A worker may accept your repair.
+        </p>
+        <h4>What next?</h4>
+        <p>You'll be able to check on your job, and see if it's been claimed, activated, or completed.</p>
+        <ul>
+            <li>Claimed: A repair memeber has chosen to take up your repair. It has been added to their Job Queue.</li>
+            <li>Activated: Our repair memeber has completed other jobs, and your is next in line or underway.</li>
+            <li>Completed: Your repair has been completed marked done by our repair member.</li>
+        </ul>
+        <p>
+            Once your job in completed, you have no further responsibility. In fact, you can freely @Html.ActionLink("check on the status", "Index", "Jobs") of all repairs,
+            and see which repair memebers are taking them on.
+        </p>
+
+        
+        </div>
+        <div class="col-md-6">
+            <img src="https://images.pexels.com/photos/3327/construction-work-carpenter-tools.jpg?w=940&h=650&auto=compress&cs=tinysrgb" class="img-responsive" alt="image" />
+        </div>
+    </div>
+    </div>
 <hr />
 <div class="container">
-    <h4>How To Become a Repair Memeber</h4>
+    <h4>How To Become a Repair Member</h4>
     <p>
         To become a repair member, you'll need to create an @Html.ActionLink("Account", "Register", "Account") and register as a @Html.ActionLink("Worker", "Create", "Workers").
         To create an account, you won't need to include your name, but to register as a worker, we'll need your first and last name, which will be freely visible.

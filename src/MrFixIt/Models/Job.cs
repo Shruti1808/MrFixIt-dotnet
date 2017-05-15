@@ -26,6 +26,7 @@ namespace MrFixIt.Models
             Pending = false;
         }
 
+        //Look for an available worker 
         public Worker FindWorker(string UserName)
         {
             Worker thisWorker = new MrFixItContext().Workers.FirstOrDefault(i => i.UserName == UserName);

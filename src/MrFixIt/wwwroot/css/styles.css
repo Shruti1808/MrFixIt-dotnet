@@ -1,4 +1,55 @@
 ﻿body {
     padding-top: 70px;
     color: navy;
+    background-color:rosybrown;
+}
+
+.header-image {
+    margin: 0px;  
+    max-width:1600px;
+    min-width:500px 
+}
+
+.header-image img{
+    width:1500px;
+    height:800px;
+}
+
+.col-md-6{
+   position: relative;
+   display: block;
+   float: left;
+   width:50%;								
+}
+
+.container{
+			width:1200px;
+			padding-left:15px;
+			margin-left: auto;
+    		margin-right: auto;
+    		padding-right:15px;
+    		display: table;
+		}	
+
+.row{
+			margin-left:-15px;
+			margin-right:-15px;
+		}
+
+.detail{
+	padding: 40px 0 0 0;
+}
+
+
+.detail p{
+    font-size: 14px;
+	color:#333;
+	text-transform: lowercase;
+}
+
+.img-responsive{
+	width:100%;
+	height: auto;
+    
+	background-size: 100% 100%;
 }

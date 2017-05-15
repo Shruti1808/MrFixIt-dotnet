@@ -1,6 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿
 @{
     ViewBag.Title = "Register";
 }
@@ -13,11 +11,12 @@
 {
     <h4>Hello @User.Identity.Name!</h4>
 
-} else
+}
+@*else
 {
     <p>@Html.ActionLink("Register", "Register")</p>
     <p>@Html.ActionLink("Log in", "Login")</p>
-}
+}*@
 
 
 

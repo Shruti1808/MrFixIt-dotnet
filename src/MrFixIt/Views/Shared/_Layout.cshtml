@@ -9,6 +9,7 @@
     <script src="~/js/scripts.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/styles.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
      <title>@ViewBag.Title</title>
 </head>
@@ -47,11 +48,24 @@
                             @Html.ActionLink("Log Out", "LogOff", "Account")
                         </li>
                     }
-
+                    else
+                    {
+                        <ul class="nav navbar-nav navbar-right pull-right">
+                            <li><a href="/Account/Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                            <li><a href="/Account/Register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        </ul>
+                    }
                 </ul>
             </div>
         </div>
     </nav>     @*Navbar ends here*@
+
+    <!-- Header -->
+    <div class="header-image">
+
+        <img src="https://static.pexels.com/photos/36137/pexels-photo.jpg" class="Tecnician working">
+
+    </div>
 
     @*Current User Dashboard*@
 

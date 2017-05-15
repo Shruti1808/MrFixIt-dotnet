@@ -7,8 +7,6 @@ using MrFixIt.Models;
 using Microsoft.AspNetCore.Identity;
 using MrFixIt.ViewModels;
 
-// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace MrFixIt.Controllers
 {
     public class AccountController : Controller
